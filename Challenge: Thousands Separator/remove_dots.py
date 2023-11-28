@@ -8,5 +8,3 @@ def remove_dots(string):
         else:
             break   
     return A
-
-print(remove_dots(100.00))

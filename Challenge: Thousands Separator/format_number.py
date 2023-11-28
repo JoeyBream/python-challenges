@@ -15,5 +15,3 @@ def format_number(num, decimals=2):
         pos += 3
     A += str(k)[1:]
     return A
-
-print(format_number(2333.223353,4))
