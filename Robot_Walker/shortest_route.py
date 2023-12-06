@@ -9,7 +9,6 @@ Ignore any characters that aren't 'F', 'L' or 'R'.
 
 '''
 import math
-print(math.sin(math.radians(0)))
 def position(string):
     x = y = d = 0
     pos = [x,y,d]
@@ -24,14 +23,15 @@ def position(string):
     pos = [round(x),round(y),round(d)]
     return pos
 
-print(position("RFFFLLLFFFFFLLFFFF"))
-
 def shortest_route(string):
     pos = position(string)
-    x = pos[0], y = pos[1], d = pos[2]
+    x = pos[0], y = pos[1], d = pos[2], s = 0
     s += abs(x) + abs(y)
     # Calculate the contribution from d #
+        # Using vectors? Unsure..
     return s
+
+print(position("RFFFLLLFFFFFLLFFFF"))
 
 # assert shortest_route("RF")==3
 # assert shortest_route("LFRFRFR") == 1
