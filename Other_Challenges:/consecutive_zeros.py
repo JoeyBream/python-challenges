@@ -1,16 +1,18 @@
 '''Takes a string, returns the number of consecutive zeros'''
 import time
-def consecutive_zeros(string):
-    full_max = []
-    current_max = 0
-    for letter in string:
-        if letter == "0":
-            current_max += 1
-            full_max.append(current_max)
-        else:
-            current_max = 0 # Reset the maximum count found. Unecessary unless this is the first time 
-    return max(full_max, default=0)
-    
+#def consecutive_zeros(string):
+#    full_max = []
+#    current_max = 0
+#    for letter in string:
+#        if letter == "0":
+#            current_max += 1
+#            full_max.append(current_max)
+#        else:
+#            current_max = 0 # Reset the maximum count found. Unecessary unless this is the first time 
+#    return max(full_max, default=0)
+
+def consecutive_zeros(binary_string):
+    return max(map(len, binary_string.split('1')))
 
 start = time.time_ns()
 
