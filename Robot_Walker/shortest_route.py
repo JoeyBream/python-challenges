@@ -21,18 +21,29 @@ def position(string):
             x += math.cos(math.radians(d))
             y += math.sin(math.radians(d))
     pos = [round(x),round(y),round(d)]
+    print(pos)
     return pos
 
 def shortest_route(string):
     pos = position(string)
-    x = pos[0], y = pos[1], d = pos[2], s = 0
-    s += abs(x) + abs(y)
-    # Calculate the contribution from d #
-        # Using vectors? Unsure..
-    return s
+    x,y,d = pos[0], pos[1], pos[2]
+    min_steps = abs(x) + abs(y)  # Initialize with the current position
+
+    for i in range(4):  # Try all possible rotations (0, 90, 180, 270 degrees)
+        # Simulate movement based on the current rotation
+        rotated_string = string
+        if i > 0:
+            rotated_string += "R" * i
+
+        # Calculate new position
+        new_pos = position(rotated_string)
+
+        # Calculate steps and update min_steps if needed
+        steps = abs(new_pos[0]) + abs(new_pos[1])
+        min_steps = min(min_steps, steps)
 
 print(position("RFFFLLLFFFFFLLFFFF"))
 
-# assert shortest_route("RF")==3
-# assert shortest_route("LFRFRFR") == 1
-# assert shortest_route("FxLxLxFx")== 0 
+print(shortest_route("RF"))
+print(shortest_route("LFRFRFR"))
+print(shortest_route("FxLxLxFx")) 
