@@ -21,7 +21,6 @@ def position(string):
             x += math.cos(math.radians(d))
             y += math.sin(math.radians(d))
     pos = [round(x),round(y),round(d)]
-    print(pos)
     return pos
 
 def shortest_route(string):
@@ -34,6 +33,7 @@ def shortest_route(string):
         rotated_string = string
         if i > 0:
             rotated_string += "R" * i
+        rotated_string += "F"
 
         # Calculate new position
         new_pos = position(rotated_string)
@@ -41,9 +41,9 @@ def shortest_route(string):
         # Calculate steps and update min_steps if needed
         steps = abs(new_pos[0]) + abs(new_pos[1])
         min_steps = min(min_steps, steps)
+    # Find the number of directional turns required:
 
-print(position("RFFFLLLFFFFFLLFFFF"))
-
+print(shortest_route("RFFFLLLFFFFFLLFFFF"))
 print(shortest_route("RF"))
 print(shortest_route("LFRFRFR"))
 print(shortest_route("FxLxLxFx")) 
