@@ -27,6 +27,17 @@ Here comes the twist: your solution must return True when validating itself.'''
 # Problem seems to be about mapping single inputs to single outputs, all using the same function.
 # Seems like dictionaries or map would be useful.
 # Creating the mapping
+
+dict = {
+        "def" : "missing def",
+        ":" : "missing :",
+        "(" : "missing paren",
+        ")" : "missing paren",
+        "    " : "missing indent",
+        "validate" : "wrong name",
+        "return" : "missing return",
+        }
+
 def validate(input):
     dict = {
         "def" : "missing def",
@@ -37,9 +48,10 @@ def validate(input):
         "validate" : "wrong name",
         "return" : "missing return",
         }
-    return(dict.keys())
+    # Working on a testing mechanism
+    for item in dict.keys():
+        if (input.find(item) < 0):
+            print(dict.get(item))
+    return
 
-# Working on a naive testing mechanism
-strings = ["epple","apple","apllo"]
-for item in strings:
-    print(item.find("a") >= 0)
+validate("Hi! This is Joey: Just writing a quick () ( ) param thingy you get me")
