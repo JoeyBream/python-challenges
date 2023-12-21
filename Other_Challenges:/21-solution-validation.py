@@ -28,30 +28,31 @@ Here comes the twist: your solution must return True when validating itself.'''
 # Seems like dictionaries or map would be useful.
 # Creating the mapping
 
-dict = {
-        "def" : "missing def",
-        ":" : "missing :",
-        "(" : "missing paren",
-        ")" : "missing paren",
-        "    " : "missing indent",
-        "validate" : "wrong name",
-        "return" : "missing return",
-        }
+dict_include = {
+    "def" : "missing def",
+    ":" : "missing :",
+    "(" : "missing paren",
+    ")" : "missing paren",
+    "    " : "missing indent",
+    "validate" : "wrong name",
+    "return" : "missing return",
+    }
+
+dict_exclude = {
+    "()" : "missing param"
+    }
 
 def validate(input):
-    dict = {
-        "def" : "missing def",
-        ":" : "missing :",
-        "(" : "missing paren",
-        ")" : "missing paren",
-        "    " : "missing indent",
-        "validate" : "wrong name",
-        "return" : "missing return",
-        }
-    # Working on a testing mechanism
-    for item in dict.keys():
+    # Testing for missing values
+    for item in dict_include.keys():
         if (input.find(item) < 0):
-            print(dict.get(item))
+            print(dict_include.get(item))
+    
+    # Testing for things included that should have been excluded.
+    for item in dict_exclude.keys():
+        if input.find(item) >= 0:
+            print(dict_exclude.get(item))
     return
 
-validate("Hi! This is Joey: Just writing a quick () ( ) param thingy you get me")
+#validate("Hi! This is Joey: Just writing a quick () ( ) param thingy you get me")
+validate("")
