@@ -54,5 +54,6 @@ def validate(input):
             print(dict_exclude.get(item))
     return
 
-#validate("Hi! This is Joey: Just writing a quick () ( ) param thingy you get me")
-validate("")
+validate("Hi! This is Joey: Just writing a quick () ( ) param thingy you get me")
+# validate("")
+# TODO: Return 'True' if no errors raised.

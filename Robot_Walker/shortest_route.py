@@ -28,6 +28,12 @@ def shortest_route(string):
     x,y,d = pos[0], pos[1], pos[2]
     min_steps = abs(x) + abs(y)  # Initialize with the current position
 
+    
+
+
+
+
+
     for i in range(4):  # Try all possible rotations (0, 90, 180, 270 degrees)
         # Simulate movement based on the current rotation
         rotated_string = string
