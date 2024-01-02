@@ -9,6 +9,7 @@ Ignore any characters that aren't 'F', 'L' or 'R'.
 
 '''
 import math
+import numpy as np
 def position(string):
     x = y = d = 0
     pos = [x,y,d]
@@ -27,27 +28,11 @@ def shortest_route(string):
     pos = position(string)
     x,y,d = pos[0], pos[1], pos[2]
     min_steps = abs(x) + abs(y)  # Initialize with the current position
-
-    
-
-
-
-
-
-    for i in range(4):  # Try all possible rotations (0, 90, 180, 270 degrees)
-        # Simulate movement based on the current rotation
-        rotated_string = string
-        if i > 0:
-            rotated_string += "R" * i
-        rotated_string += "F"
-
-        # Calculate new position
-        new_pos = position(rotated_string)
-
-        # Calculate steps and update min_steps if needed
-        steps = abs(new_pos[0]) + abs(new_pos[1])
-        min_steps = min(min_steps, steps)
-    # Find the number of directional turns required:
+    xy_vec = (x,y)
+    d_vec = (math.cos(math.radians(d)),math.sin(math.radians(d)))
+    #print(np.shape(d_vec))
+    vector = np.dot(xy_vec,d_vec) 
+    print(vector)
 
 print(shortest_route("RFFFLLLFFFFFLLFFFF"))
 print(shortest_route("RF"))
